@@ -1,11 +1,17 @@
-body{
-    margin: 0 auto;
+*{
+    box-sizing: border-box;
     background-color: tomato;
-}
-.intro{
-    width: 80%;
     
 }
+.intro{
+max-width: 100%;
+
+}
+body{
+    display: flexbox;
+    flex-direction: column;
+}
+
 /* Footer styles */
 footer {
     background-color: #333; /* Dark background color */
@@ -13,11 +19,20 @@ footer {
     padding: 15px; /* Padding around the content */
     text-align: center; /* Center-align text */
     bottom: 0;
-    /* left: 0; */
+    left: 0; 
     position: fixed;
     width: 100%;
 }
 
 .footer p {
     margin: 0; /* Remove default margin */
+}
+.form-box {
+    box-sizing: border-box;
+    width: 40%; /* Set the width of the box */
+    /* margin: 0 auto; Center the box horizontally */
+    padding: 20px; /* Add padding inside the box */
+    border: 1px solid #1b1919; /* Add a border around the box */
+    border-radius: 5px; /* Add some border radius for rounded corners */
+    box-shadow: 27 160 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
 }
