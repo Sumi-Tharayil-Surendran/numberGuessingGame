@@ -11,6 +11,12 @@ body{
     display: flexbox;
     flex-direction: column;
 }
+#guess{
+    cursor: pointer;
+}
+#submit{
+    cursor: pointer;
+}
 
 /* Footer styles */
 footer {
@@ -35,4 +41,5 @@ footer {
     border: 1px solid #1b1919; /* Add a border around the box */
     border-radius: 5px; /* Add some border radius for rounded corners */
     box-shadow: 27 160 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+    cursor: pointer;
 }
