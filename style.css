@@ -13,6 +13,7 @@ body{
 }
 #guess{
     cursor: pointer;
+    width: 100px;
 }
 #submit{
     cursor: pointer;
