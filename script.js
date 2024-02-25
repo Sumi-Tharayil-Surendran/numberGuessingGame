@@ -12,16 +12,15 @@ let guessCount = 1;
 let resetButton;
 
 function checkGuess() {
-    const userGuess = Number(guess.value);
-    console.log(userGuess)
+    let userGuess = Number(guess.value);
     if (guessCount === 1) {
-        guesses.textContent = "Previous guesses:"
+        guesses.textContent = 'Previous guesses: ';
     }
     guesses.textContent += userGuess + ' ';
     if (userGuess === randomNumber) {
-        lastResult.textContent = "Congradulations Buddy You got it right"
+        lastResult.textContent = "Congradulations Buddy You got it✔️"
         lastResult.style.backgroundColor = "green";
-        loworHi = ""
+        loworHi.textContent = ""
         gameOver()
 
     } else if (guessCount === 10) {
@@ -31,9 +30,9 @@ function checkGuess() {
         lastResult.textContent = "Wrong!"
         lastResult.style.backgroundColor = "red";
     }
-    if (guessCount < randomNumber) {
+    if (userGuess < randomNumber) {
         loworHi.textContent = "Guess was too low"
-    } else {
+    } else if(userGuess>randomNumber) {
         loworHi.textContent = "Guess was too high"
 
     }
@@ -41,8 +40,14 @@ function checkGuess() {
     guessCount++;
     guess.value = '';
     guess.focus();
-
+   
 }
+submit.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+    checkGuess();
+    guess.value = '';
+});
+
 function gameOver() {
     guess.disabled = true;
     submit.disabled = true;
@@ -51,11 +56,22 @@ function gameOver() {
     document.body.appendChild(resetButton)
     resetButton.addEventListener('click', resetGame)
 }
-// 
+function resetGame() {
+    guessCount = 1;
+    let results = document.querySelectorAll(".results p");
+    for (let i = 0; i < results.length; i++) {
+        results[i].textContent = '';
+    }
+    guesses.textContent = ''; // Clear previous guesses
+    resetButton.parentNode.removeChild(resetButton);
+    guess.disabled = false;
+    submit.disabled = false;
+    guess.value = '';
+    guess.focus();
+    lastResult.style.backgroundColor = 'white';
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+}
 
 
 
-
-submit.addEventListener('click', checkGuess)
-//  console.log(userGuess);
 
